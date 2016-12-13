@@ -1,20 +1,20 @@
 # Documentation
 ## API
 
-- All API's will be accessible by importing /imports/api/<api>.js
+- All API's will be accessible by importing /imports/api/`<api>`.js
 - API methods are called by running `Meteor.call('<methodName>', (<parameters>) => {/*code goes here*/})`
 - The API's for ChessRankr generally only exist for database writing actions. It's insecure to write directly to the database from the client.
 
 ### Tournament
 
 - createTournament()
-- AddPlayers()
-- RemovePlayers()
+- addPlayers()
+- removePlayers()
 - updatePlayer()
 - updateScore()
 - finishGame()
 
-### User
+### Profile
 - updateName()
 - updatePicture()
 - updateDescription()
