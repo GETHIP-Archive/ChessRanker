@@ -1,4 +1,5 @@
 //API access to user profiles
+import { Profiles } from '../../lib/profile.js';
 
 Meteor.methods({
     'profile.updateName'() {
@@ -8,6 +9,6 @@ Meteor.methods({
 
     },
     'profile.updateDescription'() {
-        
+
     }
 });
