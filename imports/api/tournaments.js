@@ -1,13 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 
-import { Tournaments } from '../../lib/tournament.js';
-import { Profiles } from '../../lib/profile.js';
-
-if(Meteor.isServer) {
-    Meteor.publish('tournaments', function tournamentsPublication() {
-        return Tournaments.find();
-    });
-}
+import { Tournament } from '../../lib/tournament.js';
+import { Profile } from '../../lib/profile.js';
 
 Meteor.methods({
     'tournament.createTournament'(name, players, callback) {
