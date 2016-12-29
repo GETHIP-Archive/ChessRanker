@@ -1,81 +1,77 @@
-<head>
-	<title>Chess Rankr</title>
-</head>
-
-<body>
+<template name="home">
 	<nav class="navbar navbar-inverse navbar-fixed-top">
-	<div class="container">
-		<div class="navbar-header">
-			<!-- Responsive Menu -->
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="#">Chess Rankr</a>
- 		</div>
- 
-	<div id="navbar" class="navbar-collapse collapse">
+        <div class="container">
+            <div class="navbar-header">
+                <!-- Responsive Menu -->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Chess Rankr</a>
+            </div>
 
-	<form class="navbar-form navbar-right">
-		<div class="form-group">
-			<input type="text" placeholder="Email" class="form-control">
-		</div>
-		<div class="form-group">
-		<input type="password" placeholder="Password" class="form-control">
-		</div>
-		<button type="submit" class="btn btn-success">Sign in</button>
-	</form>
-	
-	</div>
-	</div>
-</nav>
+            <div id="navbar" class="navbar-collapse collapse">
 
-<!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron">
-	<div class="container">
-		<div class="row">
-			<h2>Enter Player ID</h2>
-       			<div id="custom-search-input">
-                	<div class="input-group col-md-12">
-                        <input type="text" class="  search-query form-control" placeholder="Search" />
-                        	<span class="input-group-btn">
-                                <button class="btn btn-danger" type="button">
-                            		<span class=" glyphicon glyphicon-search"></span>
-                                </button>
-                            </span>
+                <form class="navbar-form navbar-right">
+                    <div class="form-group">
+                        <input type="text" placeholder="Email" class="form-control">
                     </div>
-                </div>
-		</div>
-	</div>
-</div>
+                    <div class="form-group">
+                    <input type="password" placeholder="Password" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-success">Sign in</button>
+                </form>
 
-<div class="container">
-	<div class="row">
-				<div class="col-md-4">
-			<h2>Add Tournaments</h2>
-			<p>Click here to create/edit tournaments</p>
-			<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-		</div>
-		<div class="col-md-4">
-			<h2>Gallup</h2>
-			<p>We are making this through the Gallup GetHip program.</p>
-			<p><a class="btn btn-default" href="http://gallupgethip.com/" role="button">View details &raquo;</a></p>
-		</div>
-		<div class="col-md-4">
-			<h2>About this project</h2>
-			<p>This project is supposed to calculate chess scores and list them for people to see.</p>
-			<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-		</div>
-	</div>
+            </div>
+	    </div>
+    </nav>
 
-	<hr>
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <h2>Enter Player ID</h2>
+                    <div id="custom-search-input">
+                        <div class="input-group col-md-12">
+                            <input type="text" class="  search-query form-control" placeholder="Search" />
+                                <span class="input-group-btn">
+                                    <button class="btn btn-danger" type="button">
+                                        <span class=" glyphicon glyphicon-search"></span>
+                                    </button>
+                                </span>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
 
-	<footer>
-		<p>&copy; 2016 Company, Inc.</p>
-	</footer>
+    <div class="container">
+        <div class="row">
+                    <div class="col-md-4">
+                <h2>Add Tournaments</h2>
+                <p>Click here to create/edit tournaments</p>
+                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Gallup</h2>
+                <p>We are making this through the Gallup GetHip program.</p>
+                <p><a class="btn btn-default" href="http://gallupgethip.com/" role="button">View details &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>About this project</h2>
+                <p>This project is supposed to calculate chess scores and list them for people to see.</p>
+                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div>
+        </div>
 
-</div> <!-- /container -->
+        <hr>
 
-</body>
+        <footer>
+            <p>&copy; 2016 Company, Inc.</p>
+        </footer>
+
+    </div> <!-- /container -->
+
+</template>
