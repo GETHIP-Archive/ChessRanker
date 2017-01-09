@@ -1,8 +1,17 @@
-<!-- <head>
+<head>
     <title>ChessRanker</title>
 </head>
 
-<body>
+<!-- <body>
     <h1>ChessRankr</h1>
 </body>
  -->
+    
+<template name="mainLayout">
+<!-- <header><h1>Kadira Blog</h1></header> -->
+    {{>header}}
+	<main>
+		{{>Template.dynamic template=content}}
+	</main>
+<!-- <footer>We love Meteor</footer> -->
+</template>
