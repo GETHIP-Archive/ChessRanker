@@ -1,5 +1,10 @@
 /* CSS declarations go here */
-
+#editTournament {
+        margin:0;
+        margin-top: 80px;
+        padding: 0;
+        margin-bottom: 80px;
+}
 
 #custom-search-input {
         margin:0;
@@ -8,20 +13,20 @@
         margin-bottom: 80px;
     }
  
-    #custom-search-input .search-query {
-        padding-right: 3px;
-        padding-right: 4px \9;
-        padding-left: 3px;
-        padding-left: 4px \9;
-        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+#custom-search-input .search-query {
+    padding-right: 3px;
+    padding-right: 4px \9;
+    padding-left: 3px;
+    padding-left: 4px \9;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
  
-        margin-bottom: 0;
+    margin-bottom: 0;
         -webkit-border-radius: 3px;
         -moz-border-radius: 3px;
-        border-radius: 3px;
+    border-radius: 3px;
     }
  
-    #custom-search-input button {
+#custom-search-input button {
         border: 0;
         background: none;
         /** belows styles are working good */
@@ -37,6 +42,6 @@
         color:#D9230F;
     }
  
-    .search-query:focus + button {
-        z-index: 3;   
+.search-query:focus + button {
+    z-index: 3;   
     }

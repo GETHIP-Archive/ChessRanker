@@ -1,17 +1,16 @@
+<!-- This is the main html.  It consists of mainLayout - which gets populated with  -->
+<!-- template that is dynamically loaded -->
 <head>
     <title>ChessRanker</title>
 </head>
-
-<!-- <body>
-    <h1>ChessRankr</h1>
-</body>
- -->
-    
+ 
 <template name="mainLayout">
-<!-- <header><h1>Kadira Blog</h1></header> -->
+	<!-- show the header template -->
     {{>header}}
 	<main>
+	    <!-- flow in differents templates as needed -->
+	    <!-- on main page, flow in home template -->
+	    <!-- on add Tournament page, flow in tournament template -->
 		{{>Template.dynamic template=content}}
 	</main>
-<!-- <footer>We love Meteor</footer> -->
 </template>
