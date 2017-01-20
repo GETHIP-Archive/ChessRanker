@@ -1,7 +1,13 @@
 import { Meteor } from 'meteor/meteor';
+import { check } from 'meteor/check';
+
+//@TODO add check statements on each API call
 
 import { Tournaments } from '../../lib/tournament.js';
 import { Profiles } from '../../lib/profile.js';
+import { Players } from '../../lib/player.js';
+
+let unauthorizedMessage = 'User not logged in';
 
 if(Meteor.isServer) {
     Meteor.publish('tournaments', function tournamentsPublication() {
@@ -10,68 +16,60 @@ if(Meteor.isServer) {
 }
 
 Meteor.methods({
-    'tournament.createTournament'(name, players, callback) {
+    'tournament.createTournament'(name, players) { //String name, array players
 
-        let formattedPlayers = [];
+        if(Meteor.user()) {
 
-        if(typeof name !== 'string' || players.isArray() || typeof callback !== 'function') {
-            callback({
-                status: 'error'
-            });
-        }
+            Tournaments.insert({name: name, players: players});
 
-        function checkIfExists(playerName) {
-            for(let x in players) {
-                if(players[x].name === playerName) {
-                    return false;
-                }
-            }
-        }
-
-        for(let i in players) {
-            if(typeof players[i].name === 'string' && checkIfExists(players[i].name)) {
-                if(players[i].elo) {
-
-                    formattedPlayers.push({
-                        name: players[i].name,
-                        elo: players[i].elo
-                    });
-
-                    callback({
-                        status: 'success'
-                    });
-
-                } else {
-
-                    formattedPlayers.push({
-                        name: players[i].name
-                    });
-
-                    callback({
-                        status: 'success'
-                    });
-
-                }
-            } else {
-                callback({
-                    status: 'error'
-                });
-            }
+        } else {
+            throw new Error(unauthorizedMessage);
         }
     },
-    'tournament.addPlayers'() {
+    'tournament.addPlayers'(tournamentId, newPlayerId) { //string tournamentId, new player
+        if(Meteor.user()) {
 
+            let currentTournament = Tournaments.find({_id: tournamentId}).fetch();
+
+            currentTournament.players.push(newPlayerId);
+
+            Tournaments.update(tournamentId, {$set: { players: currentTournament}});
+
+        } else {
+            throw new Error(unauthorizedMessage);
+        }
     },
-    'tournament.removePlayer'() {
+    'tournament.removePlayer'(tournamentId, playerId) { //String tournamentId, string playerId
+        if(Meteor.user()) {
 
+            let tournament = Tournaments.find({_id: tournamentId}).fetch();
+
+            let playerIndex = tournament.players.indexOf(playerId);
+
+            tournament.players.splice(playerIndex, 1);
+
+            Tournaments.update(tournamentId, {$set: { players: tournament.players}});
+
+        } else {
+            throw new Error(unauthorizedMessage);
+        }
     },
-    'tournament.updatePlayer'() {
+    'tournament.updateScore'(playerScoreplayerScoreData) { //[{playerId, score}, {playerid, score}]
+        if(Meteor.user()) {
 
+            Players.update(playerScoreData[0].playerId, {$set: {elo: playerScoreData[0].score}});
+
+            Players.update(playerScoreData[1].playerId, {$set: {elo: playerScoreData[1].score}});
+
+        } else {
+            throw new Error(unauthorizedMessage);
+        }
     },
-    'tournament.updateScore'() {
-
-    },
-    'tournament.finishGame'() {
-
+    'tournament.finishGame'(gameId) {
+        if(Meteor.user()) {
+            Tournaments.update(gameId, {$inc: {completed: true}});
+        } else {
+            throw new Error(unauthorizedMessage);
+        }
     }
 });
