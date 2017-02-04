@@ -1,7 +1,7 @@
- <!-- This is the editTournament template - shown on http://URL/editTournament page -->
+<!-- This is the editTournament template - shown on http://URL/editTournament page -->
 <!-- this content is flow routed via lib/routes.js entries -->
 <template name="editTournament">
-    <!-- Edit Tournament here -->
+   <!-- Edit Tournament here -->
 
     <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
     <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
@@ -15,81 +15,62 @@
 
     <fieldset>
 
-    <!-- Text input-->
-    <div class="form-group">
-        <label class="col-md-4 control-label" for="tournamentName">Tournament Name</label>
-        <div class="col-md-4">
-          <input id="tournamentName" name="tournamentName" type="text" placeholder="Enter name here..." class="form-control input-md" required="">
-        </div>
-    </div>
+<!-- Text input-->
+<div class="form-group">
+   <label class="col-md-4 control-label" for="tournamentName">Tournament Name</label>
+   <div class="col-md-4">
+     <input id="tournamentName" name="tournamentName" type="text" placeholder="Enter name here..." class="form-control input-md" required="">
+   </div>
+</div>
 
-    <!-- Text input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="tournamentPlace">Tournament Place</label>
-        <div class="col-md-4">
-          <input id="tournamentPlace" name="tournamentPlace" type="text" placeholder="Enter place here..." class="form-control input-md" required="">
-        </div>
-    </div>
+<!-- Text input-->
+<div class="form-group">
+ <label class="col-md-4 control-label" for="tournamentPlace">Tournament Place</label>
+   <div class="col-md-4">
+     <input id="tournamentPlace" name="tournamentPlace" type="text" placeholder="Enter place here..." class="form-control input-md" required="">
+   </div>
+</div>
 
-    <!-- Date input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="tournamentDate">Tournament Date</label>
-      <div class="col-md-4">
-        <div class="input-group">
-          <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-          <input id="tournamentDate" name="tournamentDate" type="text" placeholder="MM/DD/YYYY" class="form-control input-md" required="">
-        </div>
-        </div>
-    </div>
+<!-- Date input-->
+<div class="form-group">
+ <label class="col-md-4 control-label" for="tournamentDate">Tournament Date</label>
+ <div class="col-md-4">
+   <div class="input-group">
+     <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+     <input id="tournamentDate" name="tournamentDate" type="text" placeholder="MM/DD/YYYY" class="form-control input-md" required="">
+   </div>
+   </div>
+</div>
 
-    <!-- Player1 input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="player1">Player 1</label>
-      <div class="col-md-4">
-      <input id="player1" name="player1" type="text" placeholder="Insert player name here..." class="form-control input-md" required="">
+<!-- Player1 input-->
+<div class="form-group">
+ <label class="col-md-4 control-label" for="player1">Player 1</label>
+ <div class="col-md-4">
+ <input id="player1" name="player1" type="text" placeholder="Insert player name here..." class="form-control input-md" required="">
 
-      </div>
-    </div>
+ </div>
+</div>
 
-    <!-- Text input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="player2">Player 2</label>
-      <div class="col-md-4">
-      <input id="player2" name="player2" type="text" placeholder="Insert player name here..." class="form-control input-md" required="">
-      </div>
-    </div>
+<!-- Text input-->
+<div class="form-group">
+ <label class="col-md-4 control-label" for="player2">Player 2</label>
+ <div class="col-md-4">
+ <input id="player2" name="player2" type="text" placeholder="Insert player name here..." class="form-control input-md" required="">
+ </div>
+</div>
 
-    <!-- Multiple Radios -->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="winner">Winner</label>
-      <div class="col-md-4">
-      <div class="radio">
-        <label for="winner-0">
-          <input type="radio" name="winner" id="winner-0" value="1" checked="checked">
-          Player 1
-        </label>
-    	</div>
-      <div class="radio">
-        <label for="winner-1">
-          <input type="radio" name="winner" id="winner-1" value="2">
-          Player 2
-        </label>
-    	</div>
-      </div>
-    </div>
+<!-- Submit form -->
+<div class="form-group">
+   <label class="col-md-4 control-label" for="ignore"></label>
+   <button class="btn btn-primary " name="submit" type="submit">Submit</button>
+</div>
 
-    <!-- Submit form -->
-    <div class="form-group">
-        <label class="col-md-4 control-label" for="ignore"></label>
-        <button class="btn btn-primary " name="submit" type="submit">Submit</button>
-    </div>
-
-    </fieldset>
+</fieldset>
 
 
-    </form>
+</form>
 
 
-    </div>
+</div>
 
 </template>
