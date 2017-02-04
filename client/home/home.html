@@ -9,7 +9,7 @@
                     <div id="custom-search-input">
                         <div class="input-group col-md-12">
 
-                            {{ >EasySearch.Input index=playersIndex attributes=inputAttributes}}
+                            {{ >EasySearch.Input index=profilesIndex attributes=inputAttributes}}
 
                             <!--<span class="input-group-btn">
                                 <button class="btn btn-danger" type="button">
@@ -26,8 +26,8 @@
                             </style>
 
                             <ul>
-                                {{#EasySearch.Each index=playersIndex}}
-                                    <li>{{ name }}</li>
+                                {{#EasySearch.Each index=profilesIndex}}
+                                    <li>{{ index }} {{ name }}</li>
                                 {{/EasySearch.Each}}
                             </ul>
                         </div>

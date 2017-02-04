@@ -1,16 +1,15 @@
 import { Meteor } from 'meteor/meteor';
 import { Tempalate } from 'meteor/templating';
+import { Profiles } from '../../lib/profile.js';
 
-let Players = new Meteor.Collection('players');
-
-PlayersIndex = new EasySearch.Index({
-    collection: Players,
-    fields: ['_id'],
+ProfilesIndex = new EasySearch.Index({
+    collection: Profiles,
+    fields: ['name'],
     engine: new EasySearch.MongoDB()
 });
 
 Template.home.helpers({
-    playersIndex: () => PlayersIndex,
+    profilesIndex: () => ProfilesIndex,
     inputAttributes: () => {
         return {
             placeholder: 'Search for a game or player',
