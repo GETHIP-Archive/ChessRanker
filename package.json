@@ -6,7 +6,7 @@
   },
   "dependencies": {
     "arpad": "^1.0.1",
-    "babel-runtime": "^6.20.0",
+    "babel-runtime": "^6.22.0",
     "bcrypt": "^1.0.2",
     "elo-rank": "^1.0.0",
     "meteor-node-stubs": "~0.2.0"
