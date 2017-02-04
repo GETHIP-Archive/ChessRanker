@@ -9,6 +9,12 @@ if(Meteor.isServer) {
     Meteor.publish('players', function playersPublication() {
         return Players.find();
     });
+
+    PlayersIndex = new EasySearch.Index({
+        collection: Players,
+        fields: ['_id'],
+        engine: new EasySearch.MongoDB()
+    });
 }
 
 Meteor.methods({

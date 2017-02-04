@@ -32,12 +32,28 @@
                 <h2>Enter Player ID</h2>
                     <div id="custom-search-input">
                         <div class="input-group col-md-12">
-                            <input type="text" class="  search-query form-control" placeholder="Search" />
-                                <span class="input-group-btn">
-                                    <button class="btn btn-danger" type="button">
-                                        <span class=" glyphicon glyphicon-search"></span>
-                                    </button>
-                                </span>
+
+                            {{ >EasySearch.Input index=playersIndex attributes=inputAttributes}}
+
+                            <!--<span class="input-group-btn">
+                                <button class="btn btn-danger" type="button">
+                                    <span class=" glyphicon glyphicon-search"></span>
+                                </button>
+                            </span>-->
+
+                            <style>
+
+                                #custom-search-input {
+                                    height: 25px;
+                                    width: 80%;
+                                }
+                            </style>
+
+                            <ul>
+                                {{#EasySearch.Each index=playersIndex}}
+                                    <li>{{ name }}</li>
+                                {{/EasySearch.Each}}
+                            </ul>
                         </div>
                     </div>
             </div>
