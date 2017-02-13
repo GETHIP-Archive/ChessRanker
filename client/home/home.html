@@ -31,15 +31,18 @@
             <div class="row">
                 <h2>
 									<img style="text-align: center; display: block; margin: auto;" src="/Logo2.png" width="250" height="200" alt="hello">
+
 									<center> Enter Player ID </center>
+
 								</h2>
-                    <div id="custom-search-input">
+                    <div id="custom-search-input" >
                         <div class="input-group col-md-12">
-													<div>
-														<center>
-                            {{ >EasySearch.Input index=playersIndex attributes=inputAttributes}}
-													</center>
-												</div>
+
+                         <div align = "center">
+                            {{ >EasySearch.Input index=profilesIndex attributes=inputAttributes}}
+													</div>
+
+
 
                             <!--<span class="input-group-btn">
                                 <button class="btn btn-danger" type="button">
@@ -51,13 +54,14 @@
 
                                 #custom-search-input {
                                     height: 25px;
-                                    width: 80%;
+                                    width: 100%;
+
                                 }
                             </style>
 
                             <ul>
-                                {{#EasySearch.Each index=playersIndex}}
-                                    <li>{{ name }}</li>
+                                {{#EasySearch.Each index=profilesIndex}}
+                                    <li>{{ index }} {{ name }}</li>
                                 {{/EasySearch.Each}}
                             </ul>
                         </div>
