@@ -2,16 +2,16 @@
 <!-- This is the main html.  It consists of mainLayout - which gets populated with  -->
 <!-- template that is dynamically loaded -->
 <head>
-    <title>ChessRanker</title>
+	<title>ChessRanker</title>
 </head>
 
 <template name="mainLayout">
 	<!-- show the header template -->
-    {{>navbar}}
+	{{>navbar}}
 	<main>
-	    <!-- flow in differents templates as needed -->
-	    <!-- on main page, flow in home template -->
-	    <!-- on add Tournament page, flow in tournament template -->
+		<!-- flow in differents templates as needed -->
+		<!-- on main page, flow in home template -->
+		<!-- on add Tournament page, flow in tournament template -->
 		{{>Template.dynamic template=content}}
 	</main>
 </template>

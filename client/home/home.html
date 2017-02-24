@@ -1,93 +1,56 @@
 <!-- This is the home template - shown on http://URL/ page -->
 <!-- this content is flow routed via lib/routes.js entries -->
 <template name="home">
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <!-- Responsive Menu -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Chess Rankr</a>
-            </div>
+	<div class="jumbotron">
+		<div class="container">
+			<div class="row">
+				<h2>
+					<img style="text-align: center; display: block; margin: auto;" src="/Logo2.png" width="250" height="200" alt="hello">
+					Search for Users
+				</h2>
+					<div id="custom-search-input">
+						<div class="input-group col-md-12">
 
-            <div id="navbar" class="navbar-collapse collapse">
+							{{ >EasySearch.Input index=profilesIndex attributes=inputAttributes}}
 
-                <div class="navbar-form navbar-right">
+							<style>
 
-                    {{> loginButtons }}
+								#custom-search-input {
+									height: 25px;
+									width: 80%;
+								}
+							</style>
 
-                </div>
+							<ul>
+								{{#EasySearch.Each index=profilesIndex}}
+									<li><a href="/user/{{ username }}">{{ name }}</a></li>
+								{{/EasySearch.Each}}
+							</ul>
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
 
-            </div>
-	    </div>
-    </nav>
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-        <div class="container">
-            <div class="row">
-                <h2>
-									<img style="text-align: center; display: block; margin: auto;" src="/Logo2.png" width="250" height="200" alt="hello">
-									Enter Player ID
-								</h2>
-                    <div id="custom-search-input">
-                        <div class="input-group col-md-12">
+	<div class="container">
+		<div class="row">
+				<div class="col-md-6">
+				<h2>Add Tournaments</h2>
+				<p>Click here to create/edit tournaments</p>
+				<p><a class="btn btn-default" href="/tournament/edit" role="button">View details &raquo;</a></p>
+			</div>
+			<div class="col-md-6">
+				<h2>About Chess Rankr</h2>
+				<p>Chess Rankr allows chess clubs to create tournaments and rank player's ELO scores throughout the tournament</p>
+			</div>
+		</div>
 
-                            {{ >EasySearch.Input index=profilesIndex attributes=inputAttributes}}
+		<hr>
 
-                            <!--<span class="input-group-btn">
-                                <button class="btn btn-danger" type="button">
-                                    <span class=" glyphicon glyphicon-search"></span>
-                                </button>
-                            </span>-->
+		<footer>
+			<p>&copy; 2017 ChessRankr</p>
+		</footer>
 
-                            <style>
-
-                                #custom-search-input {
-                                    height: 25px;
-                                    width: 80%;
-                                }
-                            </style>
-
-                            <ul>
-                                {{#EasySearch.Each index=profilesIndex}}
-                                    <li>{{ index }} {{ name }}</li>
-                                {{/EasySearch.Each}}
-                            </ul>
-                        </div>
-                    </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row">
-                    <div class="col-md-4">
-                <h2>Add Tournaments</h2>
-                <p>Click here to create/edit tournaments</p>
-                <p><a class="btn btn-default" href="/tournament/edit" role="button">View details &raquo;</a></p>
-            </div>
-            <div class="col-md-4">
-                <h2>Gallup</h2>
-                <p>We are making this through the Gallup GetHip program.</p>
-                <p><a class="btn btn-default" href="http://gallupgethip.com/" role="button">View details &raquo;</a></p>
-            </div>
-            <div class="col-md-4">
-                <h2>About this project</h2>
-                <p>This project is supposed to calculate chess scores and list them for people to see.</p>
-                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-            </div>
-        </div>
-
-        <hr>
-
-        <footer>
-            <p>&copy; 2017 ChessRankr, Inc.</p>
-        </footer>
-
-    </div> <!-- /container -->
+	</div> <!-- /container -->
 
 </template>
