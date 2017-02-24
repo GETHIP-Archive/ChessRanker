@@ -1,5 +1,6 @@
 <!-- This is the editTournament template - shown on http://URL/editTournament page -->
 <!-- this content is flow routed via lib/routes.js entries -->
+
 <template name="editTournament">
 	<!-- Edit Tournament here -->
 
@@ -38,28 +39,25 @@
 					<label class="col-md-4 control-label" for="tournamentDate">Tournament Date</label>
 					<div class="col-md-4">
 						<div class="input-group">
-							<div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-							<input id="tournamentDate" name="tournamentDate" type="text" placeholder="MM/DD/YYYY" class="form-control input-md" required="">
+							<div class="input-group-addon">
+								<i class="fa fa-calendar"></i>
+							</div>
+							<input type="date">
 						</div>
 					</div>
 				</div>
 
-				<!-- Player1 input-->
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="player1">Player 1</label>
+					<label class="col-md-4 control-label" for="tournamentPlayers">Tournament Players</label>
 					<div class="col-md-4">
-						<input id="player1" name="player1" type="text" placeholder="Insert player name here..." class="form-control input-md" required="">
-
+						<ul>
+							{{#each playerLists}}
+								{{> playerList}}
+							{{/each}}
+						</ul>
 					</div>
 				</div>
 
-				<!-- Text input-->
-				<div class="form-group">
-					<label class="col-md-4 control-label" for="player2">Player 2</label>
-					<div class="col-md-4">
-						<input id="player2" name="player2" type="text" placeholder="Insert player name here..." class="form-control input-md" required="">
-					</div>
-				</div>
 
 				<!-- Submit form -->
 				<div class="form-group">
@@ -74,4 +72,9 @@
 
 	</div>
 
+
+</template>
+
+<template name="playerList">
+	<li>{{title}}</li>
 </template>

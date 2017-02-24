@@ -1,3 +1,7 @@
-import { Template } from 'meteor/templating';
-
-import './tournamentEdit';
+Template.editTournament.helpers({
+	playerLists: [
+		{ title: "Ben" },
+		{ title: "Sid" },
+		{ title: "Yash" }
+	]
+});
