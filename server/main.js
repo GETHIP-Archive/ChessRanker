@@ -34,13 +34,34 @@ Meteor.startup(() => {
 		name: 'my tournament',
 		user: 'ben',
 		compeleted: false,
-		players: [],
+		players: ['ben', 'jim', 'dash', 'gideon'],
 		date: new Date()
 	});
 
 	Players.insert({
 		name: 'ben',
-		elo: 300,
+		elo: 400,
+		kFactor: 30,
+		history: []
+	});
+
+	Players.insert({
+		name: 'jim',
+		elo: 350,
+		kFactor: 30,
+		history: []
+	});
+
+	Players.insert({
+		name: 'dash',
+		elo: 450,
+		kFactor: 30,
+		history: []
+	});
+
+	Players.insert({
+		name: 'gideon',
+		elo: 200,
 		kFactor: 30,
 		history: []
 	});
