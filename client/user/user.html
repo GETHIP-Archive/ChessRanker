@@ -1,0 +1,82 @@
+<template name="user">
+    {{ >navbar }}
+
+    <div class="profileContentContainer">
+	    {{#each profiles username}}
+	    	<img class="profilePicture" src="{{picture}}" alt="Profile picture">
+ 	
+	    	<p class="profileName">{{name}}</p>
+
+	    	<p class="profileUsername">{{username}}</p>
+
+	    {{/each}}
+
+
+	    <p class="tournamentsHeader">Tournaments</p>
+	    <ul class="profileTournamentList">
+	    	{{#each tournaments username}}
+	    		<li class="profileTournamentItem"><a class="profileTournamentLink" href="/tournament/{{_id}}">{{name}}</a></li>
+	    	{{/each}}
+	    </ul>
+
+    </div>
+
+    <style>
+
+    	.profileContentContainer {
+    		text-align: center;
+    		margin: auto;
+    		margin-top: 60px;
+    	}
+
+	    .profilePicture {
+	    	height: 200px;
+	    	width: 200px;
+	    	border-radius: 100px;
+	    }
+
+	    .profileName {
+	    	font-size: 40px;
+	    	font-family: Georgia, Arial;
+	    	margin-bottom: 0;
+	    	font-weight: bold;
+	    }
+
+	    .profileUsername {
+	    	font-size: 25px;
+	    	color: #a0a0a0;
+	    	font-family: Georgia, Arial;
+	    	margin-top: 0;
+	    }
+
+	    .tournamentsHeader {
+	    	margin-top: 50px;
+	    	font-size: 40px;
+	    	font-family: Georgia, Arial;
+	    }
+
+	    .profileTournamentList {
+	    	list-style: none;
+	    	text-indent: none;
+	    	padding: 0;
+	    }
+
+	    .profileTournamentLink {
+	    	color: #565656;
+	    	text-decoration: underline;
+	    	font-size: 30px;
+	    }
+
+	    .profileTournamentLink:hover {
+	    	text-decoration: none;
+	    }
+
+	    .profileTournamentItem {
+
+	    	list-style: none;
+	    	text-indent: none;
+	    }
+
+    </style>
+
+</template>

@@ -1,0 +1,55 @@
+<!-- This is the home template - shown on http://URL/ page -->
+<!-- this content is flow routed via lib/routes.js entries -->
+<template name="home">
+	<div class="jumbotron">
+		<div class="container">
+			<div class="row">
+				<h2>
+					<img style="text-align: center; display: block; margin: auto;" src="/Logo2.png" width="250" height="200" alt="hello">
+					Search for Users
+				</h2>
+					<div id="custom-search-input">
+						<div class="input-group col-md-12">
+
+							{{ >EasySearch.Input index=profilesIndex attributes=inputAttributes}}
+
+							<style>
+
+								#custom-search-input {
+									height: 25px;
+									width: 80%;
+								}
+							</style>
+
+							<ul>
+								{{#EasySearch.Each index=profilesIndex}}
+									<li><a href="/user/{{ username }}">{{ name }}</a></li>
+								{{/EasySearch.Each}}
+							</ul>
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+				<div class="col-md-6">
+				<h2>Add Tournaments</h2>
+				<p>Click here to create/edit tournaments</p>
+				<p><a class="btn btn-default" href="/tournament/edit" role="button">View details &raquo;</a></p>
+			</div>
+			<div class="col-md-6">
+				<h2>About Chess Rankr</h2>
+				<p>Chess Rankr allows chess clubs to create tournaments and rank player's ELO scores throughout the tournament</p>
+			</div>
+		</div>
+
+		<hr>
+
+		<footer>
+			<p>&copy; 2017 ChessRankr</p>
+		</footer>
+
+	</div>
+</template>
