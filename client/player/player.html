@@ -1,3 +1,49 @@
 <template name="playerPage">
-    Player page
+    
+    {{ >navbar }}
+
+    <div class="playerPageContainer">
+        <h2 class="playerDataHeader">Player Data</h2>
+        <hr>
+        {{#each player playerName}}
+            <p class="statHeader">Name:</p>
+            <p class="statData">{{name}}</p>
+            <p class="statHeader">Elo Rank:</p>
+            <p class="statData">{{elo}}</p>
+            <p class="statHeader">K-Factor:</p>
+            <p class="statData">{{kFactor}}</p>
+        {{/each}}
+    </div> 
+
+    <style>
+
+        .playerPageContainer {
+            margin-top: 60px;
+            margin-left: 100px;
+
+        }
+
+        .playerDataHeader {
+            font-size: 50px;
+        }
+
+        .playerName {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 50px;
+            margin-top: 50px;
+            font-weight: bold;
+        }
+
+        .statHeader {
+            font-size: 30px;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        .statData {
+            font-size: 25px;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+    </style>
 </template>

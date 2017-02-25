@@ -2,14 +2,19 @@ import { Meteor } from 'meteor/meteor';
 
 import '../imports/api/tournament.js';
 import '../imports/api/profile.js';
+import '../imports/api/player.js';
 
 import { Profiles } from '../lib/profile.js';
 import { Tournaments } from '../lib/tournament.js';
+import { Players } from '../lib/player.js';
 
 Meteor.startup(() => {
 
 	Profiles.remove({});
+	Tournaments.remove({});
+	Players.remove({});
 	Meteor.users.remove({});
+
 
 	Accounts.createUser({
 		username: 'ben',
@@ -29,7 +34,15 @@ Meteor.startup(() => {
 		name: 'my tournament',
 		user: 'ben',
 		compeleted: false,
-		players: []
-	})
+		players: [],
+		date: new Date()
+	});
+
+	Players.insert({
+		name: 'ben',
+		elo: 300,
+		kFactor: 30,
+		history: []
+	});
 
 });

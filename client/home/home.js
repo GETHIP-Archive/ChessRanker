@@ -4,34 +4,34 @@ import { Profiles } from '../../lib/profile.js';
 import { Index, MinimongoEngine } from 'meteor/easy:search';
 
 ProfilesIndex = new EasySearch.Index({
-    collection: Profiles,
-    fields: ['name'],
-    engine: new MinimongoEngine({
-        /*selector: (searchObject, options, aggregation) => {
+	collection: Profiles,
+	fields: ['name'],
+	engine: new MinimongoEngine({
+		/*selector: (searchObject, options, aggregation) => {
 
-            let selector = this.defaultConfiguration().selector(searchObject, options, aggregation);
+			let selector = this.defaultConfiguration().selector(searchObject, options, aggregation);
 
-            if(selector.name === "") {
-                searchObject.name = "dsfadfasdfadsfadsfasdfdsf";
-            }
+			if(selector.name === "") {
+				searchObject.name = "dsfadfasdfadsfadsfasdfdsf";
+			}
 
-            return selector;
-        }*/
-    })
+			return selector;
+		}*/
+	})
 });
 
 Template.home.onCreated(function() {
-    Meteor.subscribe("profiles");
+	Meteor.subscribe("profiles");
 });
 
 Template.home.helpers({
-    profilesIndex: () => {
-        return ProfilesIndex;
-    },
-    inputAttributes: () => {
-        return {
-            placeholder: 'Search for a user',
-            style: 'width: 500px; height: 30px; padding: 5px; display: block;'
-        };
-    }
+	profilesIndex: () => {
+		return ProfilesIndex;
+	},
+	inputAttributes: () => {
+		return {
+			placeholder: 'Search for a user',
+			style: 'width: 500px; height: 30px; padding: 5px; display: block;'
+		};
+	}
 });
