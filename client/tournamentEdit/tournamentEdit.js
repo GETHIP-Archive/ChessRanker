@@ -17,7 +17,7 @@ Template.editTournament.helpers({
       });
 
       even.target.title.value = "";
-      
+
       return false;
     }
   });
