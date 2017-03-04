@@ -15,7 +15,6 @@ Meteor.startup(() => {
 	Players.remove({});
 	Meteor.users.remove({});
 
-
 	Accounts.createUser({
 		username: 'ben',
 		password: 'password'

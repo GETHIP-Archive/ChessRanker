@@ -1,3 +1,25 @@
 <template name="tournament">
-    tournament
+
+	{{ >navbar }}
+
+	{{ #each tournament tournamentId}}
+		<div class="jumbotron">
+			<div class="container">
+				<div class="row">
+				<h1>{{name}}</h1>
+					<h4>Date of Tournament: {{date}}</h4>
+						<h5>Players: {{Players}}</h5>
+				</div>
+			</div>
+		</div>
+	{{/each}}
+
+	<div class="container">
+		<hr>
+
+		<footer>
+			<p>&copy; 2017 ChessRankr</p>
+		</footer>
+
+	</div>
 </template>
