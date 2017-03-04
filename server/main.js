@@ -38,7 +38,9 @@ Meteor.startup(() => {
 		history: []
 	});
 
-	players.push(Players.find({name: 'Tom'}).fetch()._id);
+	let tom = Players.find({name: 'Tom'}).fetch();
+
+	players.push(tom[0]._id);
 
 	Players.insert({
 		name: 'Bob',
@@ -47,7 +49,9 @@ Meteor.startup(() => {
 		history: []
 	});
 
-	players.push(Players.find({name: 'Bob'}).fetch()._id);
+	let bob = Players.find({name: 'Bob'}).fetch();
+
+	players.push(bob[0]._id);
 
 	Players.insert({
 		name: 'Mark',
@@ -56,7 +60,9 @@ Meteor.startup(() => {
 		history: []
 	});
 
-	players.push(Players.find({name: 'Mark'}).fetch()._id);
+	let mark = Players.find({name: 'Mark'}).fetch();
+
+	players.push(mark[0]._id);
 
 	Players.insert({
 		name: 'Bill',
@@ -65,10 +71,12 @@ Meteor.startup(() => {
 		history: []
 	});
 
-	players.push(Players.find({name: 'Bill'}).fetch()._id);
+	let bill = Players.find({name: 'Bill'}).fetch();
+
+	players.push(bill[0]._id);
 
 	Tournaments.insert({
-		name: 'my tournament',
+		name: 'My Tournamnt',
 		user: 'ben',
 		compeleted: false,
 		players: players,

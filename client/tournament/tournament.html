@@ -9,6 +9,18 @@
 				<h1>{{name}}</h1>
 					<h4>Date of Tournament: {{date}}</h4>
 						<h5>Players: {{Players}}</h5>
+							<table>
+								<tr>
+									<th>Players</th>
+									<th>ELO</th>
+								</tr>
+								{{#each players}}
+									<tr>
+										<th>{{ name }}</th>
+										<th>{{ elo }}</th>
+									</tr>
+								{{/each}}
+							</table>
 				</div>
 			</div>
 		</div>
