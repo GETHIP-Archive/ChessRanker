@@ -46,31 +46,34 @@
 						</div>
 					</div>
 				</div>
-<div class="form-group">
-   <header>
-     <center>
-      <h1>Tournament Players</h1>
-    </center>
-   </header>
-        <center>
-          <form class="new-player">
-              <input type="text" name="title" placeholder="Add a player...">
-              <input type="submit" value="Add">
-          </form>
-        </center>
-     <ul>
-       {{#each playerLists}}
-            {{> playerList}}
-       {{/each}}
-     </ul>
-</div>
+				<div class="form-group">
+				   <header>
+				     <center>
+				      <h1>Tournament Players</h1>
+				    </center>
+				   </header>
+				        <center>
+					        <form class="new-player">
+					        	{{ >EasySearch.Input index=playersIndex attributes=inputAttributes}}
+					        </form>
+
+				        	{{#EasySearch.Each index=playersIndex}}
+								<li>{{ name }}</li>
+							{{/EasySearch.Each}}
+				        </center>
+				     <ul>
+				       {{#each playerLists}}
+				            {{> playerList}}
+				       {{/each}}
+				     </ul>
+				</div>
 
 
-<!-- Submit form-->
-<div class="form-group">
-    <label class="col-md-4 control-label" for="ignore"></label>
-    <button class="btn btn-primary " name="submit" type="submit">Submit</button>
-</div>
+				<!-- Submit form-->
+				<div class="form-group">
+				    <label class="col-md-4 control-label" for="ignore"></label>
+				    <button class="btn btn-primary " name="submit" type="submit">Submit</button>
+				</div>
 
 			</fieldset>
 
