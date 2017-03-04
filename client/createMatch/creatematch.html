@@ -1,4 +1,53 @@
+<!-- This is the createMatch template - shown on http://URL/editTournament page -->
+
 <template name="createMatch">
-null
+	<!-- Edit Match here -->
+
+	<!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
+	<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+
+	<!--Font Awesome (added because you use icons in your prepend/append)-->
+	<link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
+
+	{{ >navbar }}
+
+	<div id="createMatch">
+
+		<form class="form-horizontal">
+
+			<fieldset>
+        <h2 style="margin-top: 60px;">
+          <center> Create Match </center>
+         </h2>
+
+         <center>
+         <select class="selectPlayer">
+           <option value="player">Player</option>
+         </select>
+
+        <form action="">
+           <input type="radio" name="win" value="player1"> Winner
+           <input type="radio" name="win" value="player2">
+        </form>
+
+         <select class="selectPlayer">
+           <option value="player2">Player2</option>
+         </select> <br>
+
+
+
+<!-- Submit form-->
+<div class="dropDown">
+    <label class="create-match" for="ignore"></label>
+    <button class="btn btn-primary " name="submit" type="submit">Submit</button>
+</div>
+      </center>
+			</fieldset>
+
+		</form>
+
+
+	</div>
+
 
 </template>
