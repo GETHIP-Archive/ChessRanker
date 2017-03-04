@@ -18,13 +18,5 @@ Meteor.methods({
             Players.insert({name: name});
 
         }
-    },
-
-    'players.updateElo'(playerId, newElo) {
-        if(Meteor.user()) {
-
-            Players.update(id, {$set: {elo: newElo}});
-
-        }
     }
 });
