@@ -3,10 +3,6 @@ import { Template } from 'meteor/templating';
 import { Tournaments } from '../../lib/tournament.js';
 import { Players } from '../../lib/player.js';
 
-Template.tournament.onCreated(function() {
-    Meteor.subscribe("tournaments");
-});
-
 Template.tournament.helpers({
 	tournament: (id)=> {
 		let tournament = Tournaments.find({_id: id}).fetch();
