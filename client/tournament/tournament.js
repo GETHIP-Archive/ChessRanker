@@ -10,4 +10,4 @@ Template.tournament.helpers({
 	tournament: (id)=> {
 		return Tournaments.find({_id: id}).fetch();
 	}
-})
+});
