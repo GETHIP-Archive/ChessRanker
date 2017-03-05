@@ -12,12 +12,12 @@ Template.tournament.helpers({
 
 			let players = tournament[0].players;
 
-var dtstring = dt.getFullYear()
-    + '-' + pad2(tournament.getMonth()+1)
-    + '-' + pad2(dt.getDate())
-    + ' ' + pad2(dt.getHours())
-    + ':' + pad2(dt.getMinutes())
-    + ':' + pad2(dt.getSeconds());
+var dtstring = tournament[0].date.getFullYear()
+    + '-' + (tournament[0].date.getMonth()+1)
+    + '-' + (tournament[0].date.getDate())
+    + ' ' + (tournament[0].date.getHours())
+    + ':' + (tournament[0].date.getMinutes())
+    + ':' + (tournament[0].date.getSeconds());
 
 			let playersArray = [];
 
