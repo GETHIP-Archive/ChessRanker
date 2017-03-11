@@ -44,14 +44,9 @@ Template.createMatch.events({
 		let player1 = $("#player1 option:selected").text();
 		let player2 = $("#player2 option:selected").text();
 
-		console.log(player1, player2);
-
-	},
 	'click .addBtn': (event) => {
 
 		event.preventDefault();
-
-		console.log($("#player1 option:selected").text());
 
 		let player1 = Players.findOne({name: $("#player1 option:selected").text()})._id;
 		let player2 = Players.findOne({name: $("#player2 option:selected").text()})._id;
@@ -59,15 +54,21 @@ Template.createMatch.events({
 		let result1 = document.getElementById('result1').checked;
 		let result2 = document.getElementById('result2').checked;
 
-		console.log(player1, player2);
-
 		if(result1) {
 
-			Meteor.call('tournament.updateScore', player1, player2, player1);
+			Meteor.call('tournament.updateScore', {player1: player1, player2: player2, winner: player1}, () => {
+				const id = window.location.href.match(/creatematch\/(.*)/)[1];
+
+				FlowRouter.go("/tournament/" + id);
+			});
 
 		} else {
 
-			Meteor.call('tournament.updateScore', player1, player2, player2);
+			Meteor.call('tournament.updateScore', {player1: player1, player2: player2, winner: player2}, () => {
+				const id = window.location.href.match(/creatematch\/(.*)/)[1];
+
+				FlowRouter.go("/tournament/" + id);
+			});
 
 		}
 
