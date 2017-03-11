@@ -43,6 +43,7 @@ Template.createMatch.events({
 
 		let player1 = $("#player1 option:selected").text();
 		let player2 = $("#player2 option:selected").text();
+	},
 
 	'click .addBtn': (event) => {
 
