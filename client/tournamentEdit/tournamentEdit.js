@@ -5,7 +5,7 @@ import { Index, MinimongoEngine } from 'meteor/easy:search';
 
 Template.editTournament.helpers({
   playerLists: function() {
-	return PlayerLists.find();
+	return Players.find();
   }
 });
 
@@ -41,17 +41,17 @@ PlayersIndex = new EasySearch.Index({
   })
 });
 
-Template.home.onCreated(function() {
+Template.editTournament.onCreated(function() {
   Meteor.subscribe("players");
 });
 
-Template.home.helpers({
+Template.editTournament.helpers({
   playersIndex: () => {
 	return PlayersIndex;
   },
   inputAttributes: () => {
 	return {
-	  placeholder: 'Search for a user',
+	  placeholder: 'Search for a player',
 	  style: 'width: 500px; height: 30px; padding: 5px; display: block;'
 	};
   }
