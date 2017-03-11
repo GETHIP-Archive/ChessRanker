@@ -1,10 +1,10 @@
 import { Meteor } from 'meteor/meteor';
 import { Tempalate } from 'meteor/templating';
-import { Profiles } from '../../lib/profile.js';
+import { Tournaments } from '../../lib/tournament.js';
 import { Index, MinimongoEngine } from 'meteor/easy:search';
 
-ProfilesIndex = new EasySearch.Index({
-	collection: Profiles,
+TournamentsIndex = new EasySearch.Index({
+	collection: Tournaments,
 	fields: ['name'],
 	engine: new MinimongoEngine({
 		/*selector: (searchObject, options, aggregation) => {
@@ -21,16 +21,16 @@ ProfilesIndex = new EasySearch.Index({
 });
 
 Template.home.onCreated(function() {
-	Meteor.subscribe("profiles");
+	Meteor.subscribe("tournaments");
 });
 
 Template.home.helpers({
-	profilesIndex: () => {
-		return ProfilesIndex;
+	tournamentsIndex: () => {
+		return TournamentsIndex;
 	},
 	inputAttributes: () => {
 		return {
-			placeholder: 'Search for a user',
+			placeholder: 'Search for a tournament',
 			style: 'width: 500px; height: 30px; padding: 5px; display: block;'
 		};
 	}

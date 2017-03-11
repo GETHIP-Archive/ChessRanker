@@ -6,12 +6,12 @@
 			<div class="row">
 				<h2>
 					<img style="text-align: center; display: block; margin: auto;" src="/Logo2.png" width="250" height="200" alt="hello">
-					Search for Users
+					Search for Tournaments
 				</h2>
 					<div id="custom-search-input">
 						<div class="input-group col-md-12">
 
-							{{ >EasySearch.Input index=profilesIndex attributes=inputAttributes}}
+							{{ >EasySearch.Input index=tournamentsIndex attributes=inputAttributes}}
 
 							<style>
 
@@ -22,8 +22,8 @@
 							</style>
 
 							<ul>
-								{{#EasySearch.Each index=profilesIndex}}
-									<li><a href="/user/{{ username }}">{{ name }}</a></li>
+								{{#EasySearch.Each index=tournamentsIndex}}
+									<li><a href="/tournament/{{ _id }}">{{ name }}</a></li>
 								{{/EasySearch.Each}}
 							</ul>
 						</div>
@@ -39,7 +39,7 @@
 				<div class="col-md-6">
 					<h2>Add Tournaments</h2>
 					<p>Click here to create/edit tournaments</p>
-					<p><a class="btn btn-default" href="/tournament/edit" role="button">Create Tournament &raquo;</a></p>
+					<p><a class="btn btn-default" href="/create/tournament" role="button">Create Tournament &raquo;</a></p>
 				</div>
 			{{else}}
 				<div class="col-md-6">

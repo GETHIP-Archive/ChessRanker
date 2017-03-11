@@ -3,28 +3,36 @@
 	{{ >navbar }}
 
 	{{ #each tournament tournamentId}}
-		<div class="jumbotron">
-			<div class="container">
-				<div class="row">
-				<h1>{{name}}</h1>
-					<h4>Date of Tournament: {{date}}</h4>
-						<h5>Players: {{Players}}</h5>
-							<table>
+			<div class="jumbotron">
+				<div class="container">
+					<div class="row">
+					<h1>{{name}}</h1>
+						<h4>Date: {{date}}</h4>
+						<table>
+							<tr>
+								<th>Players</th>
+								<th>ELO</th>
+							</tr>
+							{{#each players}}
 								<tr>
-									<th>Players</th>
-									<th>ELO</th>
+									<th>{{ name }}</th>
+									<th>{{ elo }}</th>
 								</tr>
-								{{#each players}}
-									<tr>
-										<th>{{ name }}</th>
-										<th>{{ elo }}</th>
-									</tr>
-								{{/each}}
-							</table>
+							{{/each}}
+						</table>
+					</div>
 				</div>
 			</div>
-		</div>
 	{{/each}}
+
+	{{#if isOwner tournamentId}}
+
+		<div style="text-align: center; margin: auto;">
+			<a href="/creatematch/{{tournamentId}}"><button class="btn btn-primary" type="submit">Add Match</button></a>
+			<a href="/tournament/edit/{{tournamentId}}"><button class="btn btn-primary" type="submit">Add Players</button></a>
+		</div>
+
+	{{/if}}
 
 	<div class="container">
 		<hr>

@@ -8,16 +8,12 @@ Template.tournament.helpers({
 		let tournament = Tournaments.find({_id: id}).fetch();
 
 		if(tournament.length !== 0) {
-			console.log(tournament);
 
 			let players = tournament[0].players;
 
-var dtstring = tournament[0].date.getFullYear()
-    + '-' + (tournament[0].date.getMonth()+1)
-    + '-' + (tournament[0].date.getDate())
-    + ' ' + (tournament[0].date.getHours())
-    + ':' + (tournament[0].date.getMinutes())
-    + ':' + (tournament[0].date.getSeconds());
+			tournament[0].date = tournament[0].date.getFullYear()
+			    + '-' + (tournament[0].date.getMonth()+1)
+			    + '-' + (tournament[0].date.getDate());
 
 			let playersArray = [];
 
@@ -30,12 +26,24 @@ var dtstring = tournament[0].date.getFullYear()
 
 			tournament[0].players = playersArray;
 
-			console.log(tournament);	
-
 			return tournament;
 
 		} else {
 			return [];
+		}
+	},
+	isOwner: (id) => {
+
+		let tournament = Tournaments.findOne({_id: id});
+
+		if(Meteor.userId() === tournament.user) {
+
+			return true;
+
+		} else {
+
+			return false;
+
 		}
 	}
 });

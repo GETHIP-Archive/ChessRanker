@@ -1,0 +1,68 @@
+<!-- This is the editTournament template - shown on http://URL/editTournament page -->
+<!-- this content is flow routed via lib/routes.js entries -->
+
+<template name="createTournament">
+
+	{{ #if currentUser }}
+		<!-- Edit Tournament here -->
+
+		<!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
+		<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+
+		<!--Font Awesome (added because you use icons in your prepend/append)-->
+		<link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
+
+		{{ >navbar }}
+
+		<div id="editTournament">
+
+			<form class="createTournamentForm form-horizontal">
+
+				<fieldset>
+
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="tournamentName">Tournament Name</label>
+						<div class="col-md-4">
+							<input id="createTournamentName" name="tournamentName" type="text" placeholder="Enter name here..." class="form-control input-md" required="">
+						</div>
+					</div>
+
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="tournamentPlace">Tournament Place</label>
+						<div class="col-md-4">
+							<input id="createTournamentPlace" name="tournamentPlace" type="text" placeholder="Enter place here..." class="form-control input-md" required="">
+						</div>
+					</div>
+
+					<!-- Date input-->
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="tournamentDate">Tournament Date</label>
+						<div class="col-md-4">
+							<div class="input-group">
+								<div class="input-group-addon">
+									<i class="fa fa-calendar"></i>
+								</div>
+								<input id="createTournamentDate" type="date">
+							</div>
+						</div>
+					</div>
+
+
+					<!-- Submit form-->
+					<div class="form-group">
+					    <label class="col-md-4 control-label" for="ignore"></label>
+					    <button class="btn btn-primary createTournamentBtn" type="submit">Submit</button>
+					</div>
+
+				</fieldset>
+
+			</form>
+
+
+		</div>
+
+	{{ /if }}
+
+</template>

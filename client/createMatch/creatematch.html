@@ -16,30 +16,44 @@
 		<form class="form-horizontal">
 
 			<fieldset>
-        <h2 style="margin-top: 60px;">
-          <center> Create Match </center>
-         </h2>
+				<h2 style="margin-top: 60px;">
+					<center> Create Match </center>
+				 </h2>
 
-         <center>
-         <select class="selectPlayer">
-           <option value="player">Player</option>
-         </select>
+				 <center>
+					 <select style="display: inline;" id="player1" class="selectPlayer">
+					 
+					 	{{ #each allPlayers tournamentId }}
 
-        <form action="">
-           <input type="radio" name="win" value="player1"> Winner
-           <input type="radio" name="win" value="player2">
-        </form>
+							<option class="playerOption1" value="player">{{name}}</option>
+					 	
+					 	{{ /each }}
 
-         <select class="selectPlayer">
-           <option value="player2">Player2</option>
-         </select> <br>
+					 </select>
 
-<!-- Submit form-->
-    <div class="dropDown">
-      <label class="create-match" for="ignore"></label>
-      <button class="btn btn-primary " name="submit" type="submit">Submit</button>
-      </div>
-      </center>
+					<form style="display: inline;">
+						 <input id="result1" name="result1" type="radio" value="player1"> Winner
+						 <input id="result2" name="result2" type="radio" value="player2">
+					</form>
+
+					 <select style="display: inline;" id="player2" class="selectPlayer">
+						 
+					 	{{ #each allPlayers tournamentId }}
+
+							<option class="playerOption2" value="player">{{name}}</option>
+					 	
+					 	{{ /each }}
+
+					 </select> <br>
+
+						<!-- Submit form-->
+					<div class="dropDown">
+						<label class="create-match" for="ignore"></label>
+						<button class="btn btn-primary addBtn" name="submit" type="submit">Add Match</button>
+						<button class="btn btn-primary goBackBtn">Go Back</button>
+
+					</div>
+				</center>
 			</fieldset>
 		</form>
 	</div>

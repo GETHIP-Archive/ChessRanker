@@ -17,11 +17,11 @@ if(Meteor.isServer) {
 }
 
 Meteor.methods({
-    'tournament.createTournament'(name, players) { //String name, array players
+    'tournament.createTournament'(name, location, date, callback) { //String name, array players
 
         if(Meteor.user()) {
 
-            Tournaments.insert({name: name, players: players});
+            Tournaments.insert({name: name, location: location, date: date, user: Meteor.userId(), players: []});
 
         } else {
             throw new Error(unauthorizedMessage);
@@ -30,11 +30,13 @@ Meteor.methods({
     'tournament.addPlayers'(tournamentId, newPlayerId) { //string tournamentId, new player
         if(Meteor.user()) {
 
-            let currentTournament = Tournaments.find({_id: tournamentId}).fetch();
+            let currentTournament = Tournaments.findOne({_id: tournamentId});
+
+            console.log(newPlayerId);
 
             currentTournament.players.push(newPlayerId);
 
-            Tournaments.update(tournamentId, {$set: { players: currentTournament}});
+            Tournaments.update(tournamentId, {$set: { players: currentTournament.players}});
 
         } else {
             throw new Error(unauthorizedMessage);
@@ -55,18 +57,20 @@ Meteor.methods({
             throw new Error(unauthorizedMessage);
         }
     },
-    'tournament.updateScore'(playerScoreData, winner) { //[{playerId, score}, {playerid, score}]
+    'tournament.updateScore'(player1, player2, winner) { //[{playerId, score}, {playerid, score}]
         if(Meteor.user()) {
 
-            let player1 = Players.find({_id: playerScoreData[0].playerId}).fetch();
-            let player2 = Players.find({_id: playerScoreData[1].playerId}).fetch();
+            console.log(player1, player2, winner);
+
+            let player1 = Players.findOne({_id: player1});
+            let player2 = Players.findOne({_id: player2});
 
             ranking = eloRank(player1.elo);
 
             let player1ExpectedScore = ranking.getExpected(player1.elo, player2.elo);
             let player2ExpectedScore = ranking.getExpected(player2.elo, player1.elo);
 
-            if(winner === player1._id) {
+            if(winner === player1) {
                 let player1NewElo = ranking.updateRating(player1ExpectedScore, 1, player1.elo);
                 let player2NewElo = ranking.updateRating(player2ExpectedScore, 0, player2.elo);
             } else {
@@ -74,8 +78,8 @@ Meteor.methods({
                 let player2NewElo = ranking.updateRating(player2ExpectedScore, 1, player2.elo);
             }
 
-            Players.update(playerScoreData[0].playerId, {$set: {elo: player1NewElo}});
-            Players.update(playerScoreData[1].playerId, {$set: {elo: player2NewElo}});
+            Players.update(player1, {$set: {elo: player1NewElo}});
+            Players.update(player2, {$set: {elo: player2NewElo}});
 
             if(player1.history.length > 10 && player1.kFactor === 30) {
                 Players.update(player1._id, {$set: {kFactor: 15}});

@@ -1,0 +1,28 @@
+#createTournamentHeader {
+	margin-top: 60px;
+	margin-bottom: 60px;
+}
+
+.createTournamentContainer {
+	text-align: center;
+	margin: auto;
+	width: 700px;
+}
+
+.createTournamentInputContainer {
+	text-align: left;
+	margin: 0;
+	height: 500px;
+	width: 100%;
+}
+
+.dateContainer {
+}
+
+.tournamentDateLabel {
+	display: inline-block;
+}
+
+.datePickerContainer {
+	display: inline;
+}
