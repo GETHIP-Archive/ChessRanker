@@ -1,6 +1,13 @@
 h2 {
-  font-family: sans-serif;
-  color: Gray;
+  font-family: 'PT Sans', sans-serif;
+  -webkit-text-stroke: 1px black;
+  color: white;
+  text-shadow:
+      3px 3px 0 #000,
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+     -1px 1px 0 #000,
+      1px 1px 0 #000;
   font-size: 60px;
 }
 
